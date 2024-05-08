@@ -20,3 +20,5 @@ public class hanoi {
 	}
 
 }
+
+// Time Complexity = O(n^2)
