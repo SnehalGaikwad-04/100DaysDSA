@@ -1,4 +1,9 @@
-//Creating a tree and traversing through preorder traverse.
+// Creating a Binary Tree
+// Traversing through  preOrder, inorder and postOrder
+
+//    1
+//  2   3
+//     4  5
 
 public class Tree1 {
 
@@ -29,22 +34,44 @@ public class Tree1 {
 			return root;
 		}
 
-		public static void PreorderTraverse(Node root) {
+		public static void preOrder(Node root) {
 			if (root == null) {
 				return;
 			}
 			System.out.print(root.data + " ");
-			PreorderTraverse(root.left);
-			PreorderTraverse(root.right);
+			preOrder(root.left);
+			preOrder(root.right);
+		}
+
+		public static void inOrder(Node root) {
+			if (root == null) {
+				return;
+			}
+			inOrder(root.left);
+			System.out.print(root.data + " ");
+			inOrder(root.right);
+		}
+
+		public static void postOrder(Node root) {
+			if (root == null) {
+				return;
+			}
+			postOrder(root.left);
+			postOrder(root.right);
+			System.out.print(root.data + " ");
 		}
 
 	}
 
 	public static void main(String args[]) {
-		int[] preorder = { 1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1 };
+		int[] nodes = { 1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1 };
 		BinaryTree t = new BinaryTree();
-		Node root = t.buildTree(preorder);
-		t.PreorderTraverse(root);
+		Node root = t.buildTree(nodes);
+		t.preOrder(root);
+		System.out.println();
+		t.inOrder(root);
+		System.out.println();
+		t.postOrder(root);
 
 	}
 
